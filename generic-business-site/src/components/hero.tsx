@@ -76,14 +76,14 @@ export default function Hero() {
           className="flex gap-4 mt-4"
         >
           <a
-            href="#contact"
+            href="/contact"
             className="px-8 py-3 rounded-full bg-[#18E0F2] text-black font-semibold hover:bg-white transition shadow-[0_0_20px_#18E0F2]/30"
           >
             Get a Free Quote
           </a>
 
           <a
-            href="#services"
+            href="/services"
             className="px-8 py-3 rounded-full border border-[#18E0F2] text-[#18E0F2] font-semibold hover:bg-[#18E0F2] hover:text-black transition"
           >
             View Services
