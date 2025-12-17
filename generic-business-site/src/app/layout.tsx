@@ -1,6 +1,7 @@
 import AOSWrapper from "@/components/aosWrapper";
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable}`}>
-        <AOSWrapper>{children}</AOSWrapper>
+        <AOSWrapper>
+          <Navbar /> {children}
+        </AOSWrapper>
       </body>
     </html>
   );
