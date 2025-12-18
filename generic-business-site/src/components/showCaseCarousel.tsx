@@ -69,6 +69,7 @@ export default function ShowcaseCarousel() {
       <button
         onClick={prev}
         className="absolute left-10 top-1/2 -translate-y-1/2 z-50 p-4 bg-[#00353F] rounded-full hover:bg-[#18E0F2] hover:text-black transition shadow-lg"
+        style={{ cursor: "pointer" }}
       >
         <HiArrowLeft size={24} />
       </button>
@@ -76,6 +77,7 @@ export default function ShowcaseCarousel() {
       <button
         onClick={next}
         className="absolute right-10 top-1/2 -translate-y-1/2 z-50 p-4 bg-[#00353F] rounded-full hover:bg-[#18E0F2] hover:text-black transition shadow-lg"
+        style={{ cursor: "pointer" }}
       >
         <HiArrowRight size={24} />
       </button>
