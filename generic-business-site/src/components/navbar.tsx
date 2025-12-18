@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -30 }}
@@ -33,25 +36,34 @@ export default function Navbar() {
             { label: "Work", href: "/work" },
             { label: "About", href: "/about" },
             { label: "Contact", href: "/contact" },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="relative group"
-            >
-              <Link
-                href={item.href}
-                className="relative transition-colors duration-300 hover:text-white"
-              >
-                {item.label}
+          ].map((item, idx) => {
+            const isActive = pathname === item.href;
 
-                {/* Premium underline */}
-                <span className="absolute left-1/2 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-[#18E0F2] to-white transition-all duration-300 group-hover:w-full group-hover:left-0" />
-              </Link>
-            </motion.div>
-          ))}
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="relative group"
+              >
+                <Link
+                  href={item.href}
+                  className={`relative transition-colors duration-300 ${
+                    isActive ? "text-white" : "hover:text-white"
+                  }`}
+                >
+                  {item.label}
+
+                  {/* Active + hover underline */}
+                  <span
+                    className={`absolute -bottom-1 h-[2px] bg-gradient-to-r from-[#18E0F2] to-white transition-all duration-300
+    ${isActive ? "w-full left-0" : "w-0 group-hover:w-full left-0"}`}
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -65,8 +77,6 @@ export default function Navbar() {
             className="relative px-6 py-2.5 rounded-full bg-[#18E0F2] text-black font-semibold text-sm overflow-hidden transition"
           >
             <span className="relative z-10">Get a Free Quote</span>
-
-            {/* glow layer */}
             <span className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition" />
           </Link>
         </motion.div>

@@ -47,7 +47,7 @@ export default function ShowcaseCarousel() {
   const next = () => setIndex((i) => (i + 1) % items.length);
   const prev = () => setIndex((i) => (i - 1 + items.length) % items.length);
 
-  const SPACING = 260;
+  const SPACING = 320;
   const FAR = SPACING * 2;
 
   return (
